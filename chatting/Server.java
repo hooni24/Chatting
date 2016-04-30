@@ -16,38 +16,38 @@ public class Server {
 		
 		try {
 			ServerSocket server = new ServerSocket(7777);
-			System.out.println("¼­¹ö°¡ ¿­·È½À´Ï´Ù.");
-			System.out.println("Å¬¶óÀÌ¾ğÆ® Á¢¼ÓÀ» ´ë±âÁßÀÔ´Ï´Ù.");
+			System.out.println("ì„œë²„ê°€ ì—´ë ¸ìŠµë‹ˆë‹¤.");
+			System.out.println("í´ë¼ì´ì–¸íŠ¸ ì ‘ì†ì„ ëŒ€ê¸°ì¤‘ì…ë‹ˆë‹¤.");
 			
 			while(true){
-				Socket client = server.accept();			//accept´Â Á¢¼ÓµÇ¸é Socket°´Ã¼ ¹İÈ¯
-				System.out.println(client.getInetAddress() + "¿¡¼­ Á¢¼ÓÇß½À´Ï´Ù.");
-				System.out.println("´ëÈ­°¡ ½ÃÀÛµË´Ï´Ù.");
-				System.out.println("*ÁÖÀÇ»çÇ× : ¼­·Î ÇÑ ¹ø¾¿ ÁÖ°í ¹Ş¾Æ¾ß¸¸ ÇÕ´Ï´Ù.");
-				System.out.println("ÇÑ »ç¶÷ÀÌ ¿©·¯¹ø ¸»ÇÏ¸é ÇÁ·Î±×·¥ÀÌ Á¾·áµÉ ¼ö ÀÖ½À´Ï´Ù.");
+				Socket client = server.accept();			//acceptëŠ” ì ‘ì†ë˜ë©´ Socketê°ì²´ ë°˜í™˜
+				System.out.println(client.getInetAddress() + "ì—ì„œ ì ‘ì†í–ˆìŠµë‹ˆë‹¤.");
+				System.out.println("ëŒ€í™”ê°€ ì‹œì‘ë©ë‹ˆë‹¤.");
+				System.out.println("*ì£¼ì˜ì‚¬í•­ : ì„œë¡œ í•œ ë²ˆì”© ì£¼ê³  ë°›ì•„ì•¼ë§Œ í•©ë‹ˆë‹¤.");
+				System.out.println("í•œ ì‚¬ëŒì´ ì—¬ëŸ¬ë²ˆ ë§í•˜ë©´ í”„ë¡œê·¸ë¨ì´ ì¢…ë£Œë  ìˆ˜ ìˆìŠµë‹ˆë‹¤.");
 				System.out.println();
 				
 				dos = new DataOutputStream(client.getOutputStream());
 				dis = new DataInputStream(client.getInputStream());
 				
 				while(true){
-					System.out.printf("%n»ó´ë¹æÀÇ ÀÔ·ÂÀ» ±â´Ù¸®´Â ÁßÀÔ´Ï´Ù.%n");
+					System.out.printf("%nìƒëŒ€ë°©ì˜ ì…ë ¥ì„ ê¸°ë‹¤ë¦¬ëŠ” ì¤‘ì…ë‹ˆë‹¤.%n");
 					String clientMessage = dis.readUTF();
-					System.out.println("»ó´ë¹æ >" + clientMessage);
+					System.out.println("ìƒëŒ€ë°© >" + clientMessage);
 					System.out.println();
 					
-					System.out.print("³ª >");
+					System.out.print("ë‚˜ >");
 					String myMessage = sc.nextLine();
 					dos.writeUTF(myMessage);
 				
-				}//´ëÈ­ ÁÖ°í ¹Ş´Â ¹«ÇÑ·çÇÁ (¿¬°áµÇ°í ³ª¼­ºÎÅÍ)
+				}//ëŒ€í™” ì£¼ê³  ë°›ëŠ” ë¬´í•œë£¨í”„ (ì—°ê²°ë˜ê³  ë‚˜ì„œë¶€í„°)
 			
-			}//while ¹«ÇÑ·çÇÁ (¼­¹ö ¿­¸®°í ³ª¼­ºÎÅÍ)
+			}//while ë¬´í•œë£¨í”„ (ì„œë²„ ì—´ë¦¬ê³  ë‚˜ì„œë¶€í„°)
 			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}//server »ı¼ºÀÚ
+	}//server ìƒì„±ì
 
 	
 	

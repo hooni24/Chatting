@@ -12,28 +12,28 @@ public class Client {
 		Scanner sc = new Scanner(System.in);
 		
 		try {
-			System.out.print("Á¢¼ÓÇÒ ¼­¹öÀÇ IPÁÖ¼Ò¸¦ ÀÔ·ÂÇÏ¼¼¿ä >");
+			System.out.print("ì ‘ì†í•  ì„œë²„ì˜ IPì£¼ì†Œë¥¼ ì…ë ¥í•˜ì„¸ìš” >");
 			String ip = sc.nextLine();
 			
 			Socket client = new Socket(ip, 7777);
-			System.out.println("¼­¹ö¿¡ ¿¬°áµÇ¾ú½À´Ï´Ù.");
-			System.out.println("´ëÈ­°¡ ½ÃÀÛµË´Ï´Ù.");
-			System.out.println("*ÁÖÀÇ»çÇ× : ¼­·Î ÇÑ ¹ø¾¿ ÁÖ°í ¹Ş¾Æ¾ß¸¸ ÇÕ´Ï´Ù.");
-			System.out.println("ÇÑ »ç¶÷ÀÌ ¿©·¯¹ø ¸»ÇÏ¸é ÇÁ·Î±×·¥ÀÌ Á¾·áµÉ ¼ö ÀÖ½À´Ï´Ù.");
+			System.out.println("ì„œë²„ì— ì—°ê²°ë˜ì—ˆìŠµë‹ˆë‹¤.");
+			System.out.println("ëŒ€í™”ê°€ ì‹œì‘ë©ë‹ˆë‹¤.");
+			System.out.println("*ì£¼ì˜ì‚¬í•­ : ì„œë¡œ í•œ ë²ˆì”© ì£¼ê³  ë°›ì•„ì•¼ë§Œ í•©ë‹ˆë‹¤.");
+			System.out.println("í•œ ì‚¬ëŒì´ ì—¬ëŸ¬ë²ˆ ë§í•˜ë©´ í”„ë¡œê·¸ë¨ì´ ì¢…ë£Œë  ìˆ˜ ìˆìŠµë‹ˆë‹¤.");
 			System.out.println();
 			DataInputStream dis = new DataInputStream(client.getInputStream());
 			DataOutputStream dos = new DataOutputStream(client.getOutputStream());
 			while(client.isConnected()){
-				System.out.print("³ª >");
+				System.out.print("ë‚˜ >");
 				String myMessage = sc.nextLine();
 				dos.writeUTF(myMessage);
 				
-				System.out.printf("%n»ó´ë¹æÀÇ ÀÔ·ÂÀ» ±â´Ù¸®´Â ÁßÀÔ´Ï´Ù.%n");
+				System.out.printf("%nìƒëŒ€ë°©ì˜ ì…ë ¥ì„ ê¸°ë‹¤ë¦¬ëŠ” ì¤‘ì…ë‹ˆë‹¤.%n");
 				String serverMessage = dis.readUTF();
-				System.out.println("»ó´ë >" + serverMessage);
+				System.out.println("ìƒëŒ€ >" + serverMessage);
 				System.out.println();
 				
-			}// ¿¬°á»óÅÂÀÎ µ¿¾È ¹«ÇÑ·çÇÁ.
+			}// ì—°ê²°ìƒíƒœì¸ ë™ì•ˆ ë¬´í•œë£¨í”„.
 			
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
